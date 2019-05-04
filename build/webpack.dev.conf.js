@@ -21,7 +21,7 @@ module.exports = merge(baseConfig, {
         // contentBase: [path.join(__dirname, "public"), path.join(__dirname, "assets")],
         // quiet:true,//true，则终端输出的只有初始启动信息。 webpack 的警告和错误是不输出到终端的。
         // devServer.publicPath
-        publicPath: "/assets/",
+        // publicPath: "/assets/",
         // 原本路径 --> 变换后的路径
         // http: //localhost:8080/app.js --> http://localhost:8080/assets/app.js
         open: false, //自动打开浏览器

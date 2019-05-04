@@ -2,22 +2,24 @@
   <h1>{{test}}</h1>
 </template>
  
-<script>
-  export default {
-    name: 'App',
-    data(){
-        return {
-            test:$config.test
-        }
-    }
-  }
-</script>
  
-<style>
-  html, body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 16px;
+<script>
+import "./style/style.scss";
+export default {
+  name: "App",
+  data() {
+    return {
+      test: $config.test
+    };
   }
+};
+</script>
+
+
+<style lang="scss" scoped>
+h1 {
+  color: #bb9860;
+}
 </style>
+ 
+ 

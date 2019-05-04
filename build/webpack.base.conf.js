@@ -16,7 +16,8 @@ const AutoDllPlugin = require('autodll-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     entry: { //入口文件，可以多个入口，参数为数组
-        bundle: path.resolve(__dirname, '../src/index.js')
+        bundle: path.resolve(__dirname, '../src/index.js'),
+        test: path.resolve(__dirname, '../src/test.js'),
     },
     output: { //输出文件  publicPath定义所有资源路径的起始位置在哪儿
         path: path.resolve(__dirname, '../dist'),
@@ -54,8 +55,8 @@ module.exports = {
                 loader: 'vue-loader'
             },
             { //autoprefixer 插件为我们的 css 代码自动添加前缀以适应不同的浏览器。
-                test: /\.css$/,
-                use: ['vue-style-loader', 'css-loader', 'postcss-loader']
+                test: /\.(css|scss)$/,
+                use: ['vue-style-loader', 'css-loader', 'postcss-loader','sass-loader']
             }
 
             // {  //
@@ -127,7 +128,14 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../public/index.html')
+            template: path.resolve(__dirname, '../public/index.html'),
+            filename: 'index.html',
+            chunks: ['bundle']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, '../public/test.html'),
+            filename: 'test.html',
+            chunks: ['test']
         }),
         // new HtmlWebpackPlugin({//如果需要多个入口文件的配置
         //     template: 'public/index_wap.html', // 模版文件
