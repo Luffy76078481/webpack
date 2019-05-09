@@ -168,6 +168,11 @@ module.exports = {
         new webpack.ProvidePlugin({
             $config: [path.resolve(__dirname, '../src/data/config.js'), 'default'],
         }),
+               
+        // new webpack.DefinePlugin({   //提供全局变量，可直接用BASENAME访问，一般用于生产和打包或者APP、PC的分开判断
+        //     BASENAME: JSON.stringify('/')
+        // })
+
 
     ]
 };
